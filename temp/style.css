@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 100px;
+  background-color: #ffe600;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 画布居中 */
+.skin {
+  background-color: #ffe600;
+
+  width: 4.5em;
+  height: 2.8em;
+
+  border: 2px dashed black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2.25em, -1.25em);
+}
+
+.eye {
+  background-color: black;
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 50%;
+  position: absolute;
+  top: 0.1em;
+  margin-left: 0.8em;
+}
+.eye::after {
+  content: "";
+  display: block;
+
+  background-color: white;
+  border-radius: 50%;
+  width: 0.18em;
+  height: 0.18em;
+  position: relative;
+  left: 0.12em;
+  top: 0.12em;
+}
+.eye.right {
+  right: 0.8em;
+}
+
+.nose {
+  /* border: 1px solid red; */
+
+  position: absolute;
+  top: 0.55em;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 0.12em solid transparent;
+  border-top-color: black;
+  border-radius: 38%;
+}
+
+.cheek {
+  background-color: #ff0000;
+  border: 0.015em solid black;
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  position: absolute;
+  top: 1.2em;
+}
+
+.cheek.left {
+  left: 0.3em;
+}
+.cheek.right {
+  right: 0.3em;
+}
+
+.mouth {
+  /* border: 1px solid red; */
+  width: 2.6em;
+  height: 2.6em;
+  position: absolute;
+  top: 2em;
+  left: 50%;
+  transform-origin: center;
+  transform: translate(-1.3em, -1.3em);
+}
+
+.mouth svg {
+  /* border: 1px solid red; */
+  position: absolute;
+  top: -1.5em;
+  z-index: 1;
+}
+.mouth svg:first-child {
+  transform: scale(0.2) translate(-5.53em);
+}
+
+.mouth svg:last-child {
+  transform: scale(0.2) matrix(-1, 0, 0, 1, 0, 0) translate(1.53em);
+}
+
+.mouth > .down {
+  /* border: 1px dashed green; */
+  position: absolute;
+  top: 0.18em;
+  width: 100%;
+  height: 1.6em;
+  overflow: hidden;
+}
+
+.mouth > .down .yuan1 {
+  border: 2px solid black;
+
+  width: 1.5em;
+  height: 10em;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -75px;
+  border-radius: 75px/420px;
+  background-color: #9b000a;
+  overflow: hidden;
+}
+.mouth > .down .yuan2 {
+  width: 2em;
+  height: 3em;
+  background-color: #ff485f;
+  position: absolute;
+  bottom: -1.75em;
+  left: 50%;
+  margin-left: -1em;
+  border-radius: 1em;
+}

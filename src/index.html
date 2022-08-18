@@ -1,52 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试</title>
+</head>
+<body>
+    <div id="pikachu">
+    <div class="skin">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
 
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1, maximum-scale=1">
-        <link rel="stylesheet" href="./style.css">
-        <title>Document</title>
-    </head>
-
-    <body>
-
-        <div class="skin">
-            <div class="eye left"></div>
-            <div class="eye right"></div>
-
-            <div class="nose clearfix">
-                <span class="left"></span>
-                <span class="right"></span>
-            </div>
-
-            <div class="mouth">
-                <div>
-                    <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                        <g>
-                            <path d="M49,38 C104,165 243,123 477,15" fill="#ffe600" stroke="black" stroke-width="8"
-                                stroke-linecap="round" />
-                        </g>
-                    </svg>
-                    <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                        <g>
-                            <path d="M49,38 C104,165 243,123 477,15" fill="#ffe600" stroke="black" stroke-width="8"
-                                stroke-linecap="round" />
-                        </g>
-                    </svg>
-                </div>
-
-                <div class="down">
-                    <div class="yuan1">
-                        <div class="yuan2"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="cheek left"></div>
-            <div class="cheek right"></div>
+        <div class="nose clearfix">
+            <span class="left"></span>
+            <span class="right"></span>
         </div>
 
-    </body>
+        <div class="mouth">
+            <div style="display: none;">
+            <!-- <div> -->
+                <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <g>
+                        <path d="M49,38 C104,165 243,123 477,15" fill="#ffe600" stroke="black" stroke-width="8"
+                            stroke-linecap="round" />
+                    </g>
+                </svg>
+                <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <g>
+                        <path d="M49,38 C104,165 243,123 477,15" fill="#ffe600" stroke="black" stroke-width="8"
+                            stroke-linecap="round" />
+                    </g>
+                </svg>
+            </div>
 
-    </html>
+            <div class="down">
+                <div class="yuan1">
+                    <div class="yuan2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="cheek left"></div>
+        <div class="cheek right"></div>
+    </div>
+    </div>
+
+    <span id="autocue">/* 你好，我能吞下玻璃 */</span>
+
+    <style id="styles4pikachu"></style>
+    <style>
+
+        *{box-sizing: border-box;}
+        *::before,*::after{box-sizing: border-box;}
+
+        #autocue{
+            display: block;
+            width: 100%;
+            height: 60px;
+            border: 1px dashed black;
+            font-size: 45px;
+            text-align: center;
+            font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+        }
+
+        #console4css{
+            position: fixed;
+            height: 50vh;
+            top: 0;
+            left: 0;
+            width: 100%;
+            outline: 2px solid black;
+            overflow-y: auto;
+        }
+        #pikachu{
+            /* position: fixed;
+            bottom: 0;
+            left: 0; */
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="autocue.js"></script>
+    <!-- <script src="main.js"></script> -->
+</body>
+</html>

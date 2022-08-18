@@ -1,34 +1,18 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-*::before, *::after{box-sizing: border-box;}
-
-body{
-    font-size: 100px;
-    background-color: #ffe600;
-}
-
-.clearfix::after{
-    content: '';
-    display: block;
-    clear: both;
-}
-
-/* 画布居中 */
+let PikachuStyles = `
+/* 创建一个画布并居中 */
 .skin{
+    font-size: 100px;
     background-color: #ffe600;
 
     width: 4.5em;
     height: 2.8em;
 
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-2.25em, -1.25em);
 }
-
+/* 两个可爱的眼睛 */
 .eye{
     background-color: black;
     width: .55em;
@@ -53,7 +37,7 @@ body{
 .eye.right{
     right: .8em;
 }
-
+/* 小鼻子 */
 .nose{
     /* border: 1px solid red; */
 
@@ -66,9 +50,7 @@ body{
     border-top-color: black ;
     border-radius: 38%;
 }
-
-
-
+/* 腮红 */
 .cheek{
     background-color: #ff0000;
     border:0.015em solid black;
@@ -78,15 +60,13 @@ body{
     position: absolute;
     top: 1.2em;
 }
-
 .cheek.left{
     left: .3em;
 }
 .cheek.right{
     right: .3em;
 }
-
-
+/* 嘴巴 */
 .mouth{
     /* border: 1px solid red; */
     width: 2.6em;
@@ -97,22 +77,20 @@ body{
     transform-origin: center;
     transform: translate(-1.3em, -1.3em);
 }
-
 .mouth svg{
-    /* border: 1px solid red; */
+    display: block;
     position: absolute;
     top: -1.5em;
     z-index: 1;
 }
+/* 俏皮的上嘴唇 */
 .mouth svg:first-child{
     transform: scale(.2) translate(-5.53em);
 }
-
 .mouth svg:last-child{
     transform: scale(.2) matrix(-1,0,0,1.0,0,0) translate(1.53em);
 }
-
-
+/* 啊~~~ 张嘴 */
 .mouth > .down{
     /* border: 1px dashed green; */
     position: absolute;
@@ -121,7 +99,6 @@ body{
     height: 1.6em;
     overflow: hidden;
 }
-
 .mouth > .down .yuan1{
     border: 2px solid black;
 
@@ -145,3 +122,60 @@ body{
     margin-left: -1em;
     border-radius: 1em;
 }
+/* 完成!! */
+body {
+    background: #ffe600;
+}
+`;
+
+const hideMouseStyles = `
+.mouth svg{
+    display: none;
+}
+`;
+
+// 先隐藏svg作图的mouth
+let step;
+step = hideMouseStyles.length - 1;
+
+PikachuStyles = hideMouseStyles + PikachuStyles;
+styles4pikachu.innerHTML = PikachuStyles.substring(0, step);
+
+let time = 100;
+
+const run = () => {
+  // 按行读取css
+  step = PikachuStyles.indexOf("\n", step + 1);
+
+  if (step < 0 || step > PikachuStyles.length) {
+    clearInterval(id);
+    return;
+  }
+
+  styles4pikachu.innerHTML = PikachuStyles.substring(0, step);
+};
+
+const play = () => {
+  return setInterval(run, time);
+};
+const pause = () => {
+  clearInterval(id);
+};
+
+const slow = () => {
+  pause();
+  time = 150;
+  id = play();
+};
+const normal = () => {
+  pause();
+  time = 50;
+  id = play();
+};
+const fast = () => {
+  pause();
+  time = 0;
+  id = play();
+};
+
+let id = play();
