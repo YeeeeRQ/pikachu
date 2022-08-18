@@ -123,6 +123,12 @@ body {
 }
 `;
 
+let pikachu = document.querySelector("#pikachu");
+const cry = new Audio("./assets/pikachu.mp3");
+pikachu.addEventListener("mouseover", () => {
+  cry.play();
+});
+
 const hideMouseStyles = `
 .mouth svg{
     display: none;
@@ -151,6 +157,7 @@ const run = () => {
   step = newStep; // 更新step
 
   if (step < 0 || step > PikachuStyles.length) {
+    cry.play();
     clearInterval(id);
     return;
   }
