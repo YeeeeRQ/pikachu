@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>测试</title>
+    <title>Pikachu</title>
+    <link rel="stylesheet" href="./3rd/animate.min.css">
 </head>
 <body>
+    <span id="autocue" class="animate__animated animate__bounce"></span>
     <div id="pikachu">
     <div class="skin">
         <div class="eye left"></div>
@@ -18,8 +20,8 @@
         </div>
 
         <div class="mouth">
-            <div style="display: none;">
-            <!-- <div> -->
+            <!-- <div style="display: none;"> -->
+            <div>
                 <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" version="1.1">
                     <g>
                         <path d="M49,38 C104,165 243,123 477,15" fill="#ffe600" stroke="black" stroke-width="8"
@@ -45,7 +47,6 @@
     </div>
     </div>
 
-    <span id="autocue">/* 你好，我能吞下玻璃 */</span>
 
     <style id="styles4pikachu"></style>
     <style>
@@ -57,10 +58,18 @@
             display: block;
             width: 100%;
             height: 60px;
-            border: 1px dashed black;
+            /* border: 1px dashed black; */
             font-size: 45px;
             text-align: center;
             font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+        }
+
+        .autocue-subtitle {
+            display: inline-block;
+            margin: 0 0.5rem;
+
+            animation: bounceIn; /* referring directly to the animation's @keyframe declaration */
+            animation-duration: 2s; /* don't forget to set a duration! */
         }
 
         #console4css{
@@ -72,6 +81,7 @@
             outline: 2px solid black;
             overflow-y: auto;
         }
+
         #pikachu{
             /* position: fixed;
             bottom: 0;
@@ -81,6 +91,6 @@
         }
     </style>
     <script src="autocue.js"></script>
-    <!-- <script src="main.js"></script> -->
+    <script src="main.js"></script>
 </body>
 </html>

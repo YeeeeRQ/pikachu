@@ -37,20 +37,17 @@ let PikachuStyles = `
 .eye.right{
     right: .8em;
 }
-/* 小鼻子 */
+/* 准备小鼻子 */
 .nose{
-    /* border: 1px solid red; */
-
     position: absolute;
     top: .55em;
     left: 50%;
     transform: translate(-50%, -50%);
-
     border: .12em solid transparent;
     border-top-color: black ;
     border-radius: 38%;
 }
-/* 腮红 */
+/* 俩腮红 */
 .cheek{
     background-color: #ff0000;
     border:0.015em solid black;
@@ -66,9 +63,8 @@ let PikachuStyles = `
 .cheek.right{
     right: .3em;
 }
-/* 嘴巴 */
+/* 嘴巴部分 */
 .mouth{
-    /* border: 1px solid red; */
     width: 2.6em;
     height: 2.6em;
     position: absolute;
@@ -92,7 +88,6 @@ let PikachuStyles = `
 }
 /* 啊~~~ 张嘴 */
 .mouth > .down{
-    /* border: 1px dashed green; */
     position: absolute;
     top: .18em;
     width: 100%;
@@ -101,7 +96,6 @@ let PikachuStyles = `
 }
 .mouth > .down .yuan1{
     border: 2px solid black;
-
     width: 1.5em;
     height: 10em;
     position: absolute;
@@ -122,8 +116,9 @@ let PikachuStyles = `
     margin-left: -1em;
     border-radius: 1em;
 }
-/* 完成!! */
+/* 完成, 恭喜 !!! */
 body {
+    transition: background 1s ease;
     background: #ffe600;
 }
 `;
@@ -141,11 +136,19 @@ step = hideMouseStyles.length - 1;
 PikachuStyles = hideMouseStyles + PikachuStyles;
 styles4pikachu.innerHTML = PikachuStyles.substring(0, step);
 
-let time = 100;
-
+// 按行读取css, 并输出注释到提词器element
+let reg4comment = /^\/\*.+\*\/$/; //匹配注释
+let autocue = new Autocue("#autocue");
 const run = () => {
-  // 按行读取css
-  step = PikachuStyles.indexOf("\n", step + 1);
+  let newStep = PikachuStyles.indexOf("\n", step + 1);
+  let currentLine = PikachuStyles.substring(step, newStep).trim();
+  if (reg4comment.test(currentLine)) {
+    console.log(currentLine);
+    currentLine = currentLine.slice(2, -2);
+    autocue.showSubtitle(currentLine);
+  }
+
+  step = newStep; // 更新step
 
   if (step < 0 || step > PikachuStyles.length) {
     clearInterval(id);
@@ -155,27 +158,13 @@ const run = () => {
   styles4pikachu.innerHTML = PikachuStyles.substring(0, step);
 };
 
+let time = 100;
+
 const play = () => {
   return setInterval(run, time);
 };
 const pause = () => {
   clearInterval(id);
-};
-
-const slow = () => {
-  pause();
-  time = 150;
-  id = play();
-};
-const normal = () => {
-  pause();
-  time = 50;
-  id = play();
-};
-const fast = () => {
-  pause();
-  time = 0;
-  id = play();
 };
 
 let id = play();

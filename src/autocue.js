@@ -15,7 +15,7 @@ class Autocue {
 
     if (typeof subtitle !== "string") return;
 
-    this.el.innerText = subtitle;
+    this.el.innerHTML = `<span class="autocue-subtitle">${subtitle}</span>`;
 
     if (this.timer) clearTimeout(this.timer);
     this.timer = setTimeout(() => {
