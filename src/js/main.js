@@ -121,6 +121,12 @@ body {
     transition: background 1s ease;
     background: #ffe600;
 }
+
+
+
+
+/* 试着摸一下它吧 */
+
 `;
 
 let pikachu = document.querySelector("#pikachu");
